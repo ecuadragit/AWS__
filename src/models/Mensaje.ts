@@ -4,5 +4,4 @@ export interface Mensaje {
   estadoEnvio: number;
   fechaHoraEnvio: Date;
   mensaje: string;
-  // Puedes agregar otras propiedades según tu esquema de base de datos
 }

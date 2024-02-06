@@ -31,7 +31,7 @@ export const programarCampania: APIGatewayProxyHandler = async (event) => {
     await pool.execute(query, params);
 
     return {
-      statusCode: 201,
+      statusCode: 200,
       body: JSON.stringify({ mensaje: 'Campaña programada exitosamente' }),
     };
   } catch (error) {

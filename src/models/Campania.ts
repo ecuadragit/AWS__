@@ -5,5 +5,4 @@ export interface Campania {
   idUsuario: number;
   fechaHoraProgramacion: Date;
   estado: number;
-  // Puedes agregar otras propiedades según tu esquema de base de datos
 }

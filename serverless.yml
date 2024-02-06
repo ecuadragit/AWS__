@@ -3,7 +3,7 @@ service: nombre-del-proyecto
 provider:
   name: aws
   runtime: nodejs18.x
-  region: sa-east-1  # Cambia esto a la región más cercana a Lima, Perú
+  region: sa-east-1  
   stage: dev  
 
 functions:
@@ -28,4 +28,4 @@ plugins:
 
 custom:
   serverless-offline:
-    httpPort: 3000  # Puerto en el que se ejecutará localmente
+    httpPort: 3000  # Puerto en el que se ejecutará localmente 

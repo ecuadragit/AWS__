@@ -18,7 +18,13 @@ export const connectDB = async (): Promise<Connection> => {
     return connection;
   } catch (error) {
     console.error('Error al conectar a la base de datos:', error);
-    throw error; // Puedes manejar el error según tus necesidades
+  
+    const CusrtomError = {
+      message: 'Ha ocurrido un error crítico al conectar a la base de datos',
+      originalError: error,  // Puedes incluir el error original si lo deseas
+    };
+
+    throw CusrtomError;//  manejo del error según tus necesidad 
   }
 };
 

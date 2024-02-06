@@ -11,24 +11,32 @@ export const listarMensajesActivos: APIGatewayProxyHandler = async (event) => {
 
     // Validar parámetros de consulta
     if (!month || isNaN(Number(month))) {
+      const errorResponse = {
+        error: 'El parámetro mes es inválido',
+        message: 'Error al procesar la solicitud',
+      };
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'El parámetro mes es inválido' }),
+        body: JSON.stringify(errorResponse),
       };
     }
 
     const pool = createPool();
 
-    let query = 'SELECT * FROM Mensaje WHERE MONTH(fechaHoraEnvio) = ?';
+    let query = 'SELECT * FROM mensaje WHERE MONTH(fechaHoraEnvio) = ?';
     const params = [month];
 
     // Agregar condición para el filtro por clienteId
     if (clienteId) {
       // Validar que clienteId sea un número
       if (isNaN(Number(clienteId))) {
+        const errorResponse = {
+          error: 'El parámetro cliente es inválido',
+          message: 'Error al procesar la solicitud',
+        };
         return {
           statusCode: 400,
-          body: JSON.stringify({ error: 'El parámetro cliente es inválido' }),
+          body: JSON.stringify(errorResponse),
         };
       }
 
@@ -52,9 +60,15 @@ export const listarMensajesActivos: APIGatewayProxyHandler = async (event) => {
     };
   } catch (error) {
     console.error('Error al listar mensajes activos:', error);
+
+    const errorResponse = {
+      error: error,
+      message: 'Error al procesar la solicitud',
+    };
+
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Internal Server Error' }),
+      body: JSON.stringify(errorResponse),
     };
   }
 };

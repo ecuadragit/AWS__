@@ -4,5 +4,4 @@ export interface Usuario {
   idCliente: number;
   usuario: string;
   estado: number;
-  // Puedes agregar otras propiedades según tu esquema de base de datos
 }
