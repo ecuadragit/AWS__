@@ -1,9 +1,10 @@
 service: nombre-del-proyecto
 
 provider:
-  name: aws_serverless_API's
-  runtime: nodejs18
-  region: tu-region # por ejemplo, us-east-1
+  name: aws
+  runtime: nodejs18.x
+  region: sa-east-1  # Cambia esto a la región más cercana a Lima, Perú
+  stage: dev  
 
 functions:
   listarMensajesActivos:
@@ -22,5 +23,9 @@ functions:
           method: post
           cors: true
 
-    plugins:
-      - serverless-offline
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3000  # Puerto en el que se ejecutará localmente
