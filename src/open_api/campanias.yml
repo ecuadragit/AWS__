@@ -1,0 +1,38 @@
+# campanias.yaml
+openapi: 3.0.0
+
+info:
+  title: Campañas API
+  version: 1.0.0
+
+paths:
+  /programar-campania:
+    post:
+      summary: Programar una nueva campaña
+      requestBody:
+        description: Datos de la campaña a programar
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                idUsuario:
+                  type: integer
+                  format: int32
+                fechaHoraProgramacion:
+                  type: string
+                  format: date-time
+                estado:
+                  type: integer
+                  format: int32
+              required:
+                - nombre
+                - idUsuario
+                - fechaHoraProgramacion
+                - estado
+      responses:
+        '201':
+          description: Campaña programada exitosamente

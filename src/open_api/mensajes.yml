@@ -1,0 +1,29 @@
+# mensajes.yaml
+openapi: 3.0.0
+
+info:
+  title: Mensajes API
+  version: 1.0.0
+
+paths:
+  /mensajes-activos:
+    get:
+      summary: Obtener la cantidad de mensajes activos programados clasificados por estado de envío
+      parameters:
+        - name: mes
+          in: query
+          required: true
+          description: Mes para filtrar los mensajes
+          schema:
+            type: integer
+            format: int32
+        - name: idCliente
+          in: query
+          required: false
+          description: ID del cliente para filtrar los mensajes opcionalmente
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK

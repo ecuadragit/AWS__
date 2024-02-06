@@ -1,0 +1,31 @@
+{
+  "name": "test_aws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+    },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.133",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.16",
+    "@types/pg": "^8.11.0",
+    "chai": "^5.0.3",
+    "jest": "^29.7.0",
+    "mocha": "^10.2.0",
+    "mysql": "^2.18.1",
+    "serverless": "^3.38.0",
+    "serverless-offline": "^13.3.3",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "mysql2": "^3.9.1",
+    "pg": "^8.11.3"
+  }
+}

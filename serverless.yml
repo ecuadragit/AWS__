@@ -1,0 +1,26 @@
+service: nombre-del-proyecto
+
+provider:
+  name: aws_serverless_API's
+  runtime: nodejs18
+  region: tu-region # por ejemplo, us-east-1
+
+functions:
+  listarMensajesActivos:
+    handler: src/handlers/listarMensajesActivos.listarMensajesActivos
+    events:
+      - http:
+          path: /mensajes-activos
+          method: get
+          cors: true
+
+  programarCampania:
+    handler: src/handlers/programarCampania.programarCampania
+    events:
+      - http:
+          path: /programar-campania
+          method: post
+          cors: true
+
+    plugins:
+      - serverless-offline
